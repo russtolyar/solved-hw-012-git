@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="house">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="stage">
+					<xsd:complexType>
+						<xsd:sequence>
+
+							<xsd:element name="flats">
+								<xsd:complexType>
+									<xsd:sequence>
+
+										<xsd:element name="flat" maxOccurs="100" minOccurs="0">
+											<xsd:complexType>
+												<xsd:sequence>
+
+													<xsd:element name="rooms">
+														<xsd:complexType>
+															<xsd:sequence>
+
+																<xsd:element name="room" maxOccurs="10" minOccurs="0">
+																	<xsd:complexType>
+																		<xsd:sequence>
+
+																			<xsd:element name="wall">
+																				<xsd:complexType>
+																					<xsd:sequence>
+
+																						<xsd:element
+																								name="materialWall">
+																							<xsd:simpleType>
+																								<xsd:restriction
+																										base="xsd:string">
+																									<xsd:enumeration
+																											value="WOOD"/>
+																									<xsd:enumeration
+																											value="BRICK"/>
+																									<xsd:enumeration
+																											value="BETON"/>
+																									<xsd:enumeration
+																											value="STEEL"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+
+																					</xsd:sequence>
+																				</xsd:complexType>
+																			</xsd:element>
+
+																			<xsd:element name="roomType">
+																				<xsd:simpleType>
+																					<xsd:restriction base="xsd:string">
+																						<xsd:enumeration
+																								value="DINNING"/>
+																						<xsd:enumeration
+																								value="LIVING"/>
+																						<xsd:enumeration
+																								value="STUDIO"/>
+																						<xsd:enumeration
+																								value="BEDROOM"/>
+																						<xsd:enumeration
+																								value="KITCHEN"/>
+																						<xsd:enumeration
+																								value="SEMISTUDIO"/>
+																					</xsd:restriction>
+																				</xsd:simpleType>
+																			</xsd:element>
+
+																			<xsd:element name="ceiling">
+																				<xsd:complexType mixed="true">
+																					<xsd:sequence>
+
+																						<xsd:element
+																								name="colorCeiling">
+																							<xsd:simpleType>
+																								<xsd:restriction
+																										base="xsd:string">
+																									<xsd:enumeration
+																											value="WHITE"/>
+																									<xsd:enumeration
+																											value="PINK"/>
+																									<xsd:enumeration
+																											value="ORANGE"/>
+																									<xsd:enumeration
+																											value="BLUE"/>
+																								</xsd:restriction>
+																							</xsd:simpleType>
+																						</xsd:element>
+																					</xsd:sequence>
+																				</xsd:complexType>
+																			</xsd:element>
+
+																		</xsd:sequence>
+																		<xsd:attribute type="xsd:string" name="name"
+																		               use="optional"/>
+																	</xsd:complexType>
+																</xsd:element>
+
+															</xsd:sequence>
+															<xsd:attribute type="xsd:string" name="name"
+															               use="optional"/>
+														</xsd:complexType>
+													</xsd:element>
+
+												</xsd:sequence>
+												<xsd:attribute type="xsd:int" name="number" use="optional"/>
+											</xsd:complexType>
+										</xsd:element>
+
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+
+				<xsd:element name="countStage" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+</xsd:schema>
