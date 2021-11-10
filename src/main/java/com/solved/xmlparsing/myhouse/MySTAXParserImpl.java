@@ -21,6 +21,8 @@ public class MySTAXParserImpl implements Parsable {
     @Override
     public House parse(String fileName) {
 
+        System.out.println("Hello");
+
         House house = null;
         Stage stage;
         List<Flat> flats = new ArrayList<>();
