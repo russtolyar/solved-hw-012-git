@@ -9,6 +9,8 @@ import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -34,9 +36,7 @@ public class MySTAXParserImpl implements Parsable {
         XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
 
         try {
-            // инициализируем reader и скармливаем ему xml файл
             XMLEventReader reader = xmlInputFactory.createXMLEventReader(new FileInputStream(fileName));
-            // проходим по всем элементам xml файла
             while (reader.hasNext()) {
                 XMLEvent xmlEvent = reader.nextEvent();
 
@@ -103,6 +103,24 @@ public class MySTAXParserImpl implements Parsable {
                             assert house != null;
                             house.setCountStage(Integer.parseInt(xmlEvent.asCharacters().getData()));
                             break;
+
+                        case "dob":
+                            xmlEvent = reader.nextEvent();
+                            assert house != null;
+                            String dob = xmlEvent.asCharacters().getData();
+                            LocalDate date = LocalDate.parse(dob, DateTimeFormatter.ISO_LOCAL_DATE);
+                            house.setDOB(date);
+                            break;
+//                            case "dateOfBirth":
+//                        try {
+//                            nextEvent = reader.nextEvent();
+//                        } catch (XMLStreamException e) {
+//                            e.printStackTrace();
+//                        }
+//                        String dob = nextEvent.asCharacters().getData();
+//                        LocalDate date = LocalDate.parse(dob, DateTimeFormatter.ISO_LOCAL_DATE);
+//                        soldier.setDob(date);
+//                        break;
                     }
                 }
                 if (xmlEvent.isEndElement()) {
@@ -116,6 +134,7 @@ public class MySTAXParserImpl implements Parsable {
                         if (fName.equals("flat")) {
                             flats.add(flat);
                             System.out.println("Flat completed ");
+                            flats = new ArrayList<>();
                         }
 
                     } else if (xmlEvent.isEndElement()) {

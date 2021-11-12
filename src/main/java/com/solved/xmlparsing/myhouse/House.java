@@ -1,12 +1,10 @@
 package com.solved.xmlparsing.myhouse;
 
-
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class House {
 
-    private static final LocalTime DOB = LocalTime.now();
-
+    private LocalDate DOB;
 
     private Stage stage;
     private int countStage;
@@ -14,25 +12,12 @@ public class House {
     public House() {
     }
 
-    public House(Stage stage, int countStages) {
-        this.stage = stage;
-        this.countStage = countStages;
-    }
-
-    public static LocalTime getDOB() {
-        return DOB;
-    }
-
-    public Stage getStage() {
-        return stage;
+    public void setDOB(LocalDate DOB) {
+        this.DOB = DOB;
     }
 
     public void setStage(Stage stage) {
         this.stage = stage;
-    }
-
-    public int getCountStage() {
-        return countStage;
     }
 
     public void setCountStage(int countStage) {
@@ -42,7 +27,8 @@ public class House {
     @Override
     public String toString() {
         return "House{" +
-                "stage=" + stage +
+                "DOB=" + DOB +
+                ", stage=" + stage +
                 ", countStage=" + countStage +
                 '}';
     }

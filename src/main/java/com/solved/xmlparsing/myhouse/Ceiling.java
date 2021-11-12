@@ -2,7 +2,6 @@ package com.solved.xmlparsing.myhouse;
 
 public class Ceiling {
 
-
     private String colorCeiling;
 
     public Ceiling() {
