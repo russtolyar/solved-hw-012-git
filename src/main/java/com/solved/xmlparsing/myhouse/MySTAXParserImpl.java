@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 public class MySTAXParserImpl implements Parsable {
 
     @Override
@@ -43,60 +44,52 @@ public class MySTAXParserImpl implements Parsable {
                     String qName = startElement.getName().getLocalPart();
 
                     switch (qName) {
-
-                        case "house":
+                        case "house" -> {
                             System.out.println("Start element HOUSE");
                             house = new House();
-                            break;
-
-                        case "stage":
+                        }
+                        case "stage" -> {
                             System.out.println("Start element STAGE");
                             stage = new Stage();
                             assert house != null;
                             house.setStage(stage);
                             stage.setFlats(flats);
-                            break;
-
-                        case "flat":
+                        }
+                        case "flat" -> {
                             System.out.println("Start element FLAT");
                             flat = new Flat();
                             Iterator<Attribute> attributes = startElement.getAttributes();
                             String No = attributes.next().getValue();
                             System.out.println(" No : " + No);
                             flat.setRooms(rooms);
-                            break;
-
-                        case "room":
+                        }
+                        case "room" -> {
                             System.out.println("Start element ROOM");
                             room = new Room();
                             Iterator<Attribute> attributeR = startElement.getAttributes();
                             String type = attributeR.next().getValue();
                             System.out.println(" Room-type : " + type);
-                            break;
-
-                        case "colorCeiling":
+                        }
+                        case "colorCeiling" -> {
                             xmlEvent = reader.nextEvent();
                             ceiling = new Ceiling();
                             ceiling.setColorCeiling(xmlEvent.asCharacters().getData());
                             assert room != null;
                             room.setCeiling(ceiling);
-                            break;
-
-                        case "roomType":
+                        }
+                        case "roomType" -> {
                             xmlEvent = reader.nextEvent();
                             assert room != null;
                             room.setRoomType(xmlEvent.asCharacters().getData());
-                            break;
-
-                        case "materialWall":
+                        }
+                        case "materialWall" -> {
                             xmlEvent = reader.nextEvent();
                             wall = new Wall();
                             wall.setMaterialWall(xmlEvent.asCharacters().getData());
                             assert room != null;
                             room.setWall(wall);
-                            break;
-
-                        case "countStage":
+                        }
+                        case "countStage" -> {
                             xmlEvent = reader.nextEvent();
                             assert house != null;
                             house.setCountStage(Integer.parseInt(xmlEvent.asCharacters().getData()));
