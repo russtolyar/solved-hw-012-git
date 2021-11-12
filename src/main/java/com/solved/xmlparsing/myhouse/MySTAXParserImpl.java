@@ -17,8 +17,6 @@ import java.util.List;
 
 public class MySTAXParserImpl implements Parsable {
 
-    String fileName = "src/main/resources/house.xml";
-
     @Override
     public House parse(String fileName) {
 
@@ -111,16 +109,6 @@ public class MySTAXParserImpl implements Parsable {
                             LocalDate date = LocalDate.parse(dob, DateTimeFormatter.ISO_LOCAL_DATE);
                             house.setDOB(date);
                             break;
-//                            case "dateOfBirth":
-//                        try {
-//                            nextEvent = reader.nextEvent();
-//                        } catch (XMLStreamException e) {
-//                            e.printStackTrace();
-//                        }
-//                        String dob = nextEvent.asCharacters().getData();
-//                        LocalDate date = LocalDate.parse(dob, DateTimeFormatter.ISO_LOCAL_DATE);
-//                        soldier.setDob(date);
-//                        break;
                     }
                 }
                 if (xmlEvent.isEndElement()) {

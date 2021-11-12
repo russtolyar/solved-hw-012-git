@@ -26,10 +26,10 @@ public class House {
 
     @Override
     public String toString() {
-        return "House{" +
+        return "House{\n" +
                 "DOB=" + DOB +
-                ", stage=" + stage +
-                ", countStage=" + countStage +
+                ", \nstage=" + stage +
+                ", \ncountStage=" + countStage +
                 '}';
     }
 }

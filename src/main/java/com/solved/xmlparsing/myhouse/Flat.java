@@ -9,22 +9,14 @@ public class Flat {
     public Flat() {
     }
 
-    public Flat(List<Room> rooms) {
-        this.rooms = rooms;
-    }
-
-    public List<Room> getRooms() {
-        return rooms;
-    }
-
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
 
     @Override
     public String toString() {
-        return "Flat{" +
-                "rooms=" + rooms +
+        return "\tFlat{" +
+                "\n\t\trooms=" + rooms +
                 '}';
     }
 }
