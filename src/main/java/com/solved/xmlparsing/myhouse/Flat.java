@@ -9,14 +9,6 @@ public class Flat {
     public Flat() {
     }
 
-    public Flat(List<Room> rooms) {
-        this.rooms = rooms;
-    }
-
-    public List<Room> getRooms() {
-        return rooms;
-    }
-
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
