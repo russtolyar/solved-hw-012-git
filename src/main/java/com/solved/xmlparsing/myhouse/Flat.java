@@ -15,8 +15,8 @@ public class Flat {
 
     @Override
     public String toString() {
-        return "Flat{" +
-                "rooms=" + rooms +
+        return "\n\tFlat{" +
+                "\n\t\trooms=" + rooms +
                 '}';
     }
 }
