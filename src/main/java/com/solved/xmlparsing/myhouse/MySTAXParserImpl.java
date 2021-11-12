@@ -3,7 +3,6 @@ package com.solved.xmlparsing.myhouse;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
@@ -12,18 +11,12 @@ import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
 
 public class MySTAXParserImpl implements Parsable {
 
-    String fileName = "src/main/resources/house.xml";
-
     @Override
     public House parse(String fileName) {
-
-        System.out.println("Hello");
 
         House house = null;
         Stage stage;
@@ -38,6 +31,7 @@ public class MySTAXParserImpl implements Parsable {
 
         try {
             XMLEventReader reader = xmlInputFactory.createXMLEventReader(new FileInputStream(fileName));
+
             while (reader.hasNext()) {
                 XMLEvent xmlEvent = reader.nextEvent();
 
@@ -46,52 +40,50 @@ public class MySTAXParserImpl implements Parsable {
                     String qName = startElement.getName().getLocalPart();
 
                     switch (qName) {
-                        case "house" -> {
-                            System.out.println("Start element HOUSE");
+                        case "house":
                             house = new House();
-                        }
-                        case "stage" -> {
-                            System.out.println("Start element STAGE");
+                            break;
+
+                        case "stage":
                             stage = new Stage();
                             assert house != null;
                             house.setStage(stage);
                             stage.setFlats(flats);
-                        }
-                        case "flat" -> {
-                            System.out.println("Start element FLAT");
+                            break;
+
+                        case "flat":
                             flat = new Flat();
-                            Iterator<Attribute> attributes = startElement.getAttributes();
-                            String No = attributes.next().getValue();
-                            System.out.println(" No : " + No);
                             flat.setRooms(rooms);
-                        }
-                        case "room" -> {
-                            System.out.println("Start element ROOM");
+                            break;
+
+                        case "room":
                             room = new Room();
-                            Iterator<Attribute> attributeR = startElement.getAttributes();
-                            String type = attributeR.next().getValue();
-                            System.out.println(" Room-type : " + type);
-                        }
-                        case "colorCeiling" -> {
+                            break;
+
+                        case "colorCeiling":
                             xmlEvent = reader.nextEvent();
                             ceiling = new Ceiling();
                             ceiling.setColorCeiling(xmlEvent.asCharacters().getData());
                             assert room != null;
                             room.setCeiling(ceiling);
-                        }
-                        case "roomType" -> {
+                            break;
+
+
+                        case "roomType":
                             xmlEvent = reader.nextEvent();
                             assert room != null;
                             room.setRoomType(xmlEvent.asCharacters().getData());
-                        }
-                        case "materialWall" -> {
+                            break;
+
+                        case "materialWall":
                             xmlEvent = reader.nextEvent();
                             wall = new Wall();
                             wall.setMaterialWall(xmlEvent.asCharacters().getData());
                             assert room != null;
                             room.setWall(wall);
-                        }
-                        case "countStage" -> {
+                            break;
+
+                        case "countStage":
                             xmlEvent = reader.nextEvent();
                             assert house != null;
                             house.setCountStage(Integer.parseInt(xmlEvent.asCharacters().getData()));
@@ -111,25 +103,21 @@ public class MySTAXParserImpl implements Parsable {
                     String fName = endElement.getName().getLocalPart();
                     if (fName.equals("room")) {
                         rooms.add(room);
-                        System.out.println("Room completed ");
+
+                    } else if (fName.equals("rooms")) {
+                        rooms = new ArrayList<>();
 
                     } else if (xmlEvent.isEndElement()) {
                         if (fName.equals("flat")) {
                             flats.add(flat);
-                            System.out.println("Flat completed ");
-                            flats = new ArrayList<>();
-                        }
-
-                    } else if (xmlEvent.isEndElement()) {
-                        if (fName.equals("stage")) {
-                            System.out.println("Stage completed ");
                         }
                     }
                 }
             }
-        } catch (
-                XMLStreamException |
-                        FileNotFoundException e) {
+            return house;
+        } catch (XMLStreamException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return house;

@@ -9,14 +9,6 @@ public class Stage {
     public Stage() {
     }
 
-    public Stage(List<Flat> flats) {
-        this.flats = flats;
-    }
-
-    public List<Flat> getFlats() {
-        return flats;
-    }
-
     public void setFlats(List<Flat> flats) {
         this.flats = flats;
     }
