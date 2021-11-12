@@ -119,6 +119,9 @@
 				</xsd:element>
 
 				<xsd:element name="countStage" type="xsd:int"/>
+
+				<xsd:element name="dob" type="xsd:date"/>
+
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

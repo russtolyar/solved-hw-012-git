@@ -1,6 +1,5 @@
 package com.solved.xmlparsing.myhouse;
 
-
 import java.util.List;
 
 public class Stage {

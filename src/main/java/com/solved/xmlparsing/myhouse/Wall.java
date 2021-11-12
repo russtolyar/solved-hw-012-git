@@ -7,14 +7,6 @@ public class Wall {
     public Wall() {
     }
 
-    public Wall(String materialWall) {
-        this.materialWall = materialWall;
-    }
-
-    public String getMaterialWall() {
-        return materialWall;
-    }
-
     public void setMaterialWall(String materialWall) {
         this.materialWall = materialWall;
     }
