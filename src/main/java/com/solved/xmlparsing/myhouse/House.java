@@ -1,19 +1,24 @@
 package com.solved.xmlparsing.myhouse;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
+
+@XmlRootElement(name = "house")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class House {
 
-    private LocalDate DOB;
-
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
+    private LocalDate dob;
     private Stage stage;
     private int countStage;
 
     public House() {
     }
 
-    public void setDOB(LocalDate DOB) {
-        this.DOB = DOB;
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
     }
 
     public void setStage(Stage stage) {
@@ -27,7 +32,7 @@ public class House {
     @Override
     public String toString() {
         return "House{\n" +
-                "DOB=" + DOB +
+                "DOB=" + dob +
                 ", \nstage=" + stage +
                 ", \ncountStage=" + countStage +
                 '}';
