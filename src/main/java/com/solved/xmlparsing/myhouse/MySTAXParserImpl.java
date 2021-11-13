@@ -94,7 +94,10 @@ public class MySTAXParserImpl implements Parsable {
                             assert house != null;
                             String dob = xmlEvent.asCharacters().getData();
                             LocalDate date = LocalDate.parse(dob, DateTimeFormatter.ISO_LOCAL_DATE);
-                            house.setDOB(date);
+                            house.setDob(date);
+                            break;
+
+                        default:
                             break;
                     }
                 }
@@ -114,7 +117,6 @@ public class MySTAXParserImpl implements Parsable {
                     }
                 }
             }
-            return house;
         } catch (XMLStreamException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {

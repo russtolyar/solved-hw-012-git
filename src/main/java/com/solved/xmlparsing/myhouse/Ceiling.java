@@ -1,18 +1,15 @@
 package com.solved.xmlparsing.myhouse;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Ceiling {
 
     private String colorCeiling;
 
     public Ceiling() {
-    }
-
-    public Ceiling(String colorCeiling) {
-        this.colorCeiling = colorCeiling;
-    }
-
-    public String getColorCeiling() {
-        return colorCeiling;
     }
 
     public void setColorCeiling(String colorCeiling) {

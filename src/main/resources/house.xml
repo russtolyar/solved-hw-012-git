@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <house xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:noNamespaceSchemaLocation="house.xsd" >
-    <stage>
-        <flats>
-            <flat number="1">
-                <rooms name="dinning, Living">
-                    <room name="dinning">
-                        <wall>
-                            <materialWall>WOOD</materialWall>
-                        </wall>
-                        <roomType>DINNING</roomType>
-                        <ceiling>
-                            <colorCeiling>WHITE</colorCeiling>
-                        </ceiling>
-                    </room>
-                    <room name="living">
-                        <wall>
-                            <materialWall>BRICK</materialWall>
-                        </wall>
-                        <roomType>LIVING</roomType>
-                        <ceiling>
-                            <colorCeiling>PINK</colorCeiling>
-                        </ceiling>
-                    </room>
-                </rooms>
-            </flat>
-            <flat number="2">
-                <rooms name="studios">
-                    <room name="studio">
-                        <wall>
-                            <materialWall>BETON</materialWall>
-                        </wall>
-                        <roomType>STUDIO</roomType>
-                        <ceiling>
-                            <colorCeiling>BLUE</colorCeiling>
-                        </ceiling>
-                    </room>
-                    <room name="semistudio">
-                        <wall>
-                            <materialWall>STEEL</materialWall>
-                        </wall>
-                        <roomType>SEMISTUDIO</roomType>
-                        <ceiling>
-                            <colorCeiling>ORANGE</colorCeiling>
-                        </ceiling>
-                    </room>
-                </rooms>
-            </flat>
-        </flats>
+       xsi:noNamespaceSchemaLocation="house.xsd">
+	<stage>
+		<flats>
+			<flat number="1">
+				<rooms name="dinning, Living">
+					<room name="dinning">
+						<wall>
+							<materialWall>WOOD</materialWall>
+						</wall>
+						<roomType>DINNING</roomType>
+						<ceiling>
+							<colorCeiling>WHITE</colorCeiling>
+						</ceiling>
+					</room>
+					<room name="living">
+						<wall>
+							<materialWall>BRICK</materialWall>
+						</wall>
+						<roomType>LIVING</roomType>
+						<ceiling>
+							<colorCeiling>PINK</colorCeiling>
+						</ceiling>
+					</room>
+				</rooms>
+			</flat>
+			<flat number="2">
+				<rooms name="studios">
+					<room name="studio">
+						<wall>
+							<materialWall>BETON</materialWall>
+						</wall>
+						<roomType>STUDIO</roomType>
+						<ceiling>
+							<colorCeiling>BLUE</colorCeiling>
+						</ceiling>
+					</room>
+					<room name="semistudio">
+						<wall>
+							<materialWall>STEEL</materialWall>
+						</wall>
+						<roomType>SEMISTUDIO</roomType>
+						<ceiling>
+							<colorCeiling>ORANGE</colorCeiling>
+						</ceiling>
+					</room>
+				</rooms>
+			</flat>
+		</flats>
 
-    </stage>
-    <countStage>1</countStage>
+	</stage>
+	<countStage>1</countStage>
 
-    <dob>2021-06-06</dob>
+	<dob>2021-06-06</dob>
 
-    </house>
+</house>
 
 
 
