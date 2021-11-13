@@ -1,11 +1,14 @@
 package com.solved.xmlparsing.myhouse;
 
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
+
 public class MyJaxbParserImpl implements Parsable{
+
     @Override
     public House parse(String fileName) {
 
@@ -19,9 +22,10 @@ public class MyJaxbParserImpl implements Parsable{
             return house;
 
         } catch (JAXBException e) {
-           //Logger.get metod + message  or  runtime Exception(e.message)
-            e.printStackTrace();
+
+           throw new RuntimeException("smth going wrong" + e.getMessage());
         }
-        return null;
+
+
     }
 }
