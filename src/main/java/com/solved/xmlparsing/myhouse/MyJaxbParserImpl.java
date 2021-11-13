@@ -1,7 +1,5 @@
 package com.solved.xmlparsing.myhouse;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -24,8 +22,10 @@ public class MyJaxbParserImpl implements Parsable{
             return house;
 
         } catch (JAXBException e) {
+
            throw new RuntimeException("smth going wrong" + e.getMessage());
         }
+
 
     }
 }
