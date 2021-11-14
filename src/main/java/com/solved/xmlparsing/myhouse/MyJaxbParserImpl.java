@@ -1,9 +1,11 @@
 package com.solved.xmlparsing.myhouse;
 
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+
 
 public class MyJaxbParserImpl implements Parsable{
 
@@ -20,8 +22,8 @@ public class MyJaxbParserImpl implements Parsable{
             return house;
 
         } catch (JAXBException e) {
+
            throw new RuntimeException("smth going wrong " + e.getMessage());
         }
-
     }
 }
