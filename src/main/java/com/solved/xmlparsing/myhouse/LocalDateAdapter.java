@@ -2,14 +2,16 @@ package com.solved.xmlparsing.myhouse;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
+public class LocalDateAdapter extends XmlAdapter<String, LocalDateTime> {
 
-    public LocalDate unmarshal(String v) throws Exception {
-        return LocalDate.parse(v);
+
+    public LocalDateTime unmarshal(String v) throws Exception {
+        return LocalDateTime.parse(v);
     }
 
-    public String marshal(LocalDate v) throws Exception {
+    public String marshal(LocalDateTime v) throws Exception {
         return v.toString();
     }
 }

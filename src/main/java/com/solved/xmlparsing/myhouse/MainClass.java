@@ -1,5 +1,7 @@
 package com.solved.xmlparsing.myhouse;
 
+import java.io.IOException;
+
 public class MainClass {
 
     public static void main(String[] args) {
@@ -14,6 +16,15 @@ public class MainClass {
         MyJaxbParserImpl myJaxbParserImpl = new MyJaxbParserImpl();
         System.out.println(myJaxbParserImpl.parse(fileName));
 
+        String filePath = "src/main/resources/house.json";
+
+        System.out.println("\n\n\t\t\tJackson parser\n");
+        MyJacksonParserImpl myJacksonParser = new MyJacksonParserImpl();
+        try {
+            System.out.println(myJacksonParser.parse(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

@@ -23,9 +23,7 @@ public class MyJaxbParserImpl implements Parsable{
 
         } catch (JAXBException e) {
 
-           throw new RuntimeException("smth going wrong" + e.getMessage());
+           throw new RuntimeException("smth going wrong " + e.getMessage());
         }
-
-
     }
 }

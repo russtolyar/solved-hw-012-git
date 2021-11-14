@@ -120,7 +120,7 @@
 
 				<xsd:element name="countStage" type="xsd:int"/>
 
-				<xsd:element name="dob" type="xsd:date"/>
+				<xsd:element name="dob" type="xsd:dateTime"/>
 
 			</xsd:sequence>
 		</xsd:complexType>
