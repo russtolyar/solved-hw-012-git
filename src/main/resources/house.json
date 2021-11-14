@@ -1,0 +1,33 @@
+{
+  "dob": "2020-01-01T00:00:00",
+  "countStage": "1",
+  "stage": {
+    "flats": [
+      {
+        "rooms": [
+          {"wall": {"materialWall":"WOOD" },
+            "roomType": "DINNING",
+            "ceiling": {"colorCeiling":"WHITE" }
+          },
+          {"wall": {"materialWall":"BRICK" },
+            "roomType": "LIVING",
+            "ceiling": {"colorCeiling":"PINK" }
+          }
+        ]
+      },
+      {
+        "rooms": [
+          {"wall": {"materialWall":"BETON" },
+            "roomType": "STUDIO",
+            "ceiling": {"colorCeiling":"BLUE" }
+          },
+          {"wall": {"materialWall":"STEEL" },
+            "roomType": "SEMISTUDIO",
+            "ceiling": {"colorCeiling":"ORANGE" }
+          }
+        ]
+      }
+    ]
+  }
+}
+

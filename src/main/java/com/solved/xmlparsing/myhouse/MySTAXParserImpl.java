@@ -9,6 +9,7 @@ import javax.xml.stream.events.XMLEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +94,7 @@ public class MySTAXParserImpl implements Parsable {
                             xmlEvent = reader.nextEvent();
                             assert house != null;
                             String dob = xmlEvent.asCharacters().getData();
-                            LocalDate date = LocalDate.parse(dob, DateTimeFormatter.ISO_LOCAL_DATE);
+                            LocalDateTime date = LocalDateTime.parse(dob, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                             house.setDob(date);
                             break;
 
@@ -117,10 +118,8 @@ public class MySTAXParserImpl implements Parsable {
                     }
                 }
             }
-        } catch (XMLStreamException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        } catch (XMLStreamException | FileNotFoundException e) {
+            throw new RuntimeException("smth going wrong in XMLStream" + e.getMessage());
         }
         return house;
     }

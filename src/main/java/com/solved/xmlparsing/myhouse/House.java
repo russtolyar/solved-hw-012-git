@@ -1,23 +1,27 @@
 package com.solved.xmlparsing.myhouse;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-
-@XmlRootElement(name = "house")
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonRootName("house")
+@XmlRootElement
 public class House {
 
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
-    private LocalDate dob;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime dob;
     private Stage stage;
     private int countStage;
 
     public House() {
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(LocalDateTime dob) {
         this.dob = dob;
     }
 
